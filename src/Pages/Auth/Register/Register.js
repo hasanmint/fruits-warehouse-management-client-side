@@ -1,9 +1,14 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate();
+    let emailError;
     const [
         createUserWithEmailAndPassword,
         user,
@@ -11,12 +16,28 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    const navigate = useNavigate();
-
+   
     const handleNevigateLogin = () => {
         navigate('/login');
     }
+    if (user) {
+        navigate('/inventories');
+    }
 
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+
+
+    if (error) {
+
+        emailError = <div>
+            <p className='text-danger'>Error: {error.message}</p>
+        </div>
+
+    }
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -50,10 +71,11 @@ const Register = () => {
                             </div>
                             <button type="submit" className="btn btn-info w-100 fw-bold p-2">Register</button>
                         </form>
+                        <p className='mt-3 text-center'>{emailError}</p>
                         <div className='text-dark text-end fw-bolder mt-2'>
                             <p> New Here? <Link to='/resetpassword' className='text-success text-decoration-none fw-bold'>Reset Password </Link></p>
                         </div>
-
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
 

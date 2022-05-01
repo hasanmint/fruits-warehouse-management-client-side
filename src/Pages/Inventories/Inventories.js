@@ -6,7 +6,7 @@ const Inventories = () => {
     const [inventories, setInventories] = useState([])
 
     useEffect(() => {
-        fetch('items.json')
+        fetch('https://limitless-harbor-99031.herokuapp.com/inventory')
             .then(Response => Response.json())
             .then(data => setInventories(data))
     }, [])
@@ -19,7 +19,7 @@ const Inventories = () => {
                         {
                             inventories.map(inventory =>
                                 <Inventory
-                                    key={inventory.id}
+                                    key={inventory._id}
                                     inventory={inventory}
                                 >
                                 </Inventory>

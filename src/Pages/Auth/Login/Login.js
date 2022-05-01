@@ -1,9 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate();
+    let emailError;
     const [
         signInWithEmailAndPassword,
         user,
@@ -11,6 +16,20 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+
+
+    if (error) {
+
+        emailError = <div>
+            <p className='text-danger'>Error: {error.message}</p>
+        </div>
+
+    }
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -38,11 +57,11 @@ const Login = () => {
                         <button type="submit" className="btn btn-info w-100 p-2 fw-bold">Login</button>
 
                     </form>
-
+                    <p className='mt-3 text-center'>{emailError}</p>
                     <div className='text-dark text-end fw-bolder mt-2'>
                         <p> Change New? <Link to='/resetpassword' className='text-success text-decoration-none fw-bold'>Reset Password </Link></p>
                     </div>
-
+                    <SocialLogin></SocialLogin>
 
                 </div>
             </div>
