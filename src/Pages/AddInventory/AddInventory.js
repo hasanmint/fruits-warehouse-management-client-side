@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddItem = () => {
+const AddInventory = () => {
     const handleAddUser = (event) => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -15,43 +15,53 @@ const AddItem = () => {
         };
         console.log(user);
 
-
+        fetch('http://localhost:5000/inventory', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
     }
 
     return (
         <div className='container'>
 
             <div className="row mt-5 mb-5">
-                <h2 className='display-4 text-center '>Add New Item</h2>
+                <h2 className='display-4 text-center '>Add New Inventory</h2>
                 <div className="col-md-6 offset-md-3">
                     <form onSubmit={handleAddUser}>
                         <div className="mb-3">
                             <label className="form-label">Item Name</label>
-                            <input type="text" name='name' className="form-control" aria-describedby="emailHelp" required />
+                            <input type="text" name='name' className="form-control" required />
 
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Price</label>
-                            <input type="number" name='price' className="form-control" aria-describedby="emailHelp" required />
+                            <input type="number" name='price' className="form-control" required />
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Quantity</label>
-                            <input type="number" name='quantity' className="form-control" aria-describedby="emailHelp" required />
+                            <input type="number" name='quantity' className="form-control" required />
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Image URL</label>
-                            <input type="text" name='image' className="form-control" aria-describedby="emailHelp" required />
+                            <input type="text" name='image' className="form-control" required />
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Supplier Name</label>
-                            <input type="text" name='suppliername' className="form-control" aria-describedby="emailHelp" required />
+                            <input type="text" name='suppliername' className="form-control" required />
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Short Description</label>
-                            <textarea type="text" name='description' className="form-control" aria-describedby="emailHelp" required />
+                            <textarea type="text" name='description' className="form-control" required />
 
                         </div>
 
@@ -64,4 +74,4 @@ const AddItem = () => {
     );
 };
 
-export default AddItem;
+export default AddInventory;

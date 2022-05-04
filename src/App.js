@@ -13,7 +13,8 @@ import RequireAuth from './Pages/Auth/SocialLogin/RequireAuth';
 import CheckOut from './Pages/CheckOut/CheckOut';
 import ResetPassword from './Pages/Auth/ResetPassword/ResetPassword';
 import Blogs from './Pages/Blogs/Blogs';
-import AddItem from './Pages/AddItem/AddItem';
+import AddInventory from './Pages/AddInventory/AddInventory';
+import ManageInventories from './Pages/ManageInventories/ManageInventories';
 
 
 function App() {
@@ -29,11 +30,18 @@ function App() {
             <CheckOut></CheckOut>
           </RequireAuth>
         }></Route>
-        <Route path='/additem' element={
+        <Route path='/addinventory' element={
           <RequireAuth>
-            <AddItem></AddItem>
+            <AddInventory></AddInventory>
           </RequireAuth>
         }></Route>
+
+        <Route path='/manageinventories' element={
+          <RequireAuth>
+            <ManageInventories></ManageInventories>
+          </RequireAuth>
+        }></Route>
+
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
