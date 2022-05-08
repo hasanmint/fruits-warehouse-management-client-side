@@ -7,7 +7,7 @@ const ManageInventory = ({ inventory }) => {
     const handleDeleteUser = (id) => {
         const proced = window.confirm('Are you sure?');
         if (proced) {
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://limitless-harbor-99031.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

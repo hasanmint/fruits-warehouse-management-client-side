@@ -9,7 +9,7 @@ const InventoryDetail = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${inventoryId
+        const url = `https://limitless-harbor-99031.herokuapp.com/inventory/${inventoryId
             }`;
         fetch(url)
             .then(Response => Response.json())

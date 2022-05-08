@@ -18,7 +18,7 @@ const AddInventory = () => {
         };
         console.log(user);
 
-        fetch('http://localhost:5000/inventory', {
+        fetch('https://limitless-harbor-99031.herokuapp.com/inventory', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
