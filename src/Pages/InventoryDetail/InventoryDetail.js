@@ -17,7 +17,7 @@ const InventoryDetail = () => {
         <div>
             <h2>InventoryDetail : {inventoryId}</h2>
             <h2>Name : {inventory.name}</h2>
-            <Link to='/checkout'> <button>delivered</button></Link>
+            <Link to={`/checkout/${inventoryId}`}> <button>delivered</button></Link>
         </div>
     );
 };
