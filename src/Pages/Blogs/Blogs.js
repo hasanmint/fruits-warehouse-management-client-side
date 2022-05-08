@@ -5,7 +5,7 @@ const Blogs = () => {
         <div className='container'>
             <div className="row">
                 <div className="col-md-8 offset-md-2">
-                    <h2 className='display-5 fw-bold lh-1 mb-5 mt-5 text-info text-center'>My Blogs</h2>
+                    <h2 className='display-5 fw-bold lh-1 mb-5 mt-5 text-success text-center'>My Blogs</h2>
                     <h2 className='display-5 text-center'>Question With Answer</h2>
                     <div className='question'>
                         <h5>Q: 1 What is the difference between Javascript and Node.JS ?</h5>

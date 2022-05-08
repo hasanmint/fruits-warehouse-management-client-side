@@ -16,7 +16,7 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-   
+
     const handleNevigateLogin = () => {
         navigate('/login');
     }
