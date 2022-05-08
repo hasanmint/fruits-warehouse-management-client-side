@@ -9,7 +9,7 @@ const Blog = () => {
             <section class="py-5 text-center container">
                 <div class="row py-lg-3">
                     <div class="col-lg-6 col-md-8 mx-auto">
-                        <h1 class="fw-light">Blog Posts</h1>
+                        <h1 class="className='display-5 fw-bold lh-1 mb-5 mt-5 text-success text-center">Blog Posts</h1>
                         <p class="lead text-muted">Our recent articles about Organic</p>
                        
                     </div>

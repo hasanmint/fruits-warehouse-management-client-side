@@ -24,11 +24,9 @@ const ManageInventory = ({ inventory }) => {
     return (
         <>
             <tr>
-                <th scope="row">1</th>
                 <td>{inventory.name}</td>
-                <td>Otto</td>
+                <td>${inventory.price} USD</td>
                 <td>
-                    <div className="btn btn-info me-3">Edit</div>
                     <div onClick={() => handleDeleteUser(inventory._id)} className="btn btn-danger">Delete</div>
                 </td>
             </tr>

@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AddInventory = () => {
+    const navigate = useNavigate();
+
     const handleAddUser = (event) => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -26,13 +29,15 @@ const AddInventory = () => {
             .then(data => {
                 console.log('Success:', data);
             })
+
+        navigate('/manageinventories');
     }
 
     return (
         <div className='container'>
 
             <div className="row mt-5 mb-5">
-                <h2 className='display-4 text-center '>Add New Inventory</h2>
+                <h2 className='text-center text-success'>Add New Inventory</h2>
                 <div className="col-md-6 offset-md-3">
                     <form onSubmit={handleAddUser}>
                         <div className="mb-3">

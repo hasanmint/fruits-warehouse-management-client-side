@@ -29,7 +29,9 @@ const Header = () => {
                                 user && <>
 
                                     <Nav.Link href="/manageinventories" className='text-white'>Manage Inventory</Nav.Link>
-                                    <Nav.Link href="/addinventory" className='text-white'>Add Item</Nav.Link>
+                                    <Nav.Link href="/addinventory" className='text-white'>Add Inventory</Nav.Link>
+                                    <Nav.Link href='/additem/:inventoryId' className='text-white'>Add Item</Nav.Link>
+                                    <Nav.Link href="/myitems" className='text-white'>My Items</Nav.Link>
                                 </>
                             }
                             {user ?

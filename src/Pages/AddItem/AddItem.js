@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 
-const CheckOut = () => {
+const AddItem = () => {
     const { inventoryId } = useParams();
     const [inventory, setInventory] = useState({});
     const [user] = useAuthState(auth);
@@ -25,7 +25,7 @@ const CheckOut = () => {
         const order = {
             email: user.email,
             inventory: inventory.name,
-            inventoryI: inventoryId,
+            inventoryId: inventoryId,
 
         }
     }
@@ -65,4 +65,4 @@ const CheckOut = () => {
     );
 };
 
-export default CheckOut;
+export default AddItem;
