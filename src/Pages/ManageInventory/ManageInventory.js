@@ -5,7 +5,7 @@ const ManageInventory = ({ inventory }) => {
     const { _id,name } = inventory;
     const [inventories, setInventories] = useInventories();
     const handleDeleteUser = (id) => {
-        const proced = window.confirm('Are you sure');
+        const proced = window.confirm('Are you sure?');
         if (proced) {
             const url = `http://localhost:5000/inventory/${id}`;
             fetch(url, {
